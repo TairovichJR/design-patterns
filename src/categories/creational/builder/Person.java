@@ -37,8 +37,7 @@ class PersonBuilder<SELF extends PersonBuilder<SELF>> {
     }
 }
 
-class EmployeeBuilder
-        extends PersonBuilder<EmployeeBuilder> {
+class EmployeeBuilder extends PersonBuilder<EmployeeBuilder> {
 
     public EmployeeBuilder worksAs(String position) {
         person.position = position;
