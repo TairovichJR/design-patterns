@@ -1,6 +1,7 @@
 package categories.creational.builder.facetedBuilder;
-public class Person
-{
+public class Person {
+
+    public String firstName, lastName;
     // address
     public String streetAddress, postcode, city;
 
@@ -9,8 +10,8 @@ public class Person
     public int annualIncome;
 
     @Override
-    public String toString()
-    {
+    public String toString() {
+
         return "Person{" +
                 "streetAddress='" + streetAddress + '\'' +
                 ", postcode='" + postcode + '\'' +
@@ -23,83 +24,81 @@ public class Person
 }
 
 // builder facade
-class PersonBuilder
-{
+class PersonBuilder {
+
     // the object we're going to build
     protected Person person = new Person(); // reference!
 
-    public PersonJobBuilder works()
-    {
+    public PersonBuilder firstName(String firstName){
+        person.firstName = firstName;
+        return this;
+    }
+
+    public PersonBuilder lastName(String lastName){
+        person.lastName = lastName;
+        return this;
+    }
+
+    public PersonJobBuilder works(){
         return new PersonJobBuilder(person);
     }
 
-    public PersonAddressBuilder lives()
-    {
+    public PersonAddressBuilder lives(){
         return new PersonAddressBuilder(person);
     }
 
-    public Person build()
-    {
+    public Person build(){
         return person;
     }
 }
 
-class PersonAddressBuilder extends PersonBuilder
-{
-    public PersonAddressBuilder(Person person)
-    {
+class PersonAddressBuilder extends PersonBuilder{
+
+    public PersonAddressBuilder(Person person){
         this.person = person;
     }
 
-    public PersonAddressBuilder at(String streetAddress)
-    {
+    public PersonAddressBuilder at(String streetAddress){
         person.streetAddress = streetAddress;
         return this;
     }
 
-    public PersonAddressBuilder withPostcode(String postcode)
-    {
+    public PersonAddressBuilder withPostcode(String postcode){
         person.postcode = postcode;
         return this;
     }
 
-    public PersonAddressBuilder in(String city)
-    {
+    public PersonAddressBuilder in(String city){
         person.city = city;
         return this;
     }
 }
 
-class PersonJobBuilder extends PersonBuilder
-{
-    public PersonJobBuilder(Person person)
-    {
+class PersonJobBuilder extends PersonBuilder{
+
+    public PersonJobBuilder(Person person){
         this.person = person;
     }
 
-    public PersonJobBuilder at(String companyName)
-    {
+    public PersonJobBuilder at(String companyName){
         person.companyName = companyName;
         return this;
     }
 
-    public PersonJobBuilder asA(String position)
-    {
+    public PersonJobBuilder asA(String position){
         person.position = position;
         return this;
     }
 
-    public PersonJobBuilder earning(int annualIncome)
-    {
+    public PersonJobBuilder earning(int annualIncome){
         person.annualIncome = annualIncome;
         return this;
     }
 }
 
-class BuilderFacetsDemo
-{
-    public static void main(String[] args)
-    {
+class BuilderFacetsDemo{
+
+    public static void main(String[] args){
         PersonBuilder pb = new PersonBuilder();
         Person person = pb
                 .lives()
@@ -107,9 +106,11 @@ class BuilderFacetsDemo
                 .in("London")
                 .withPostcode("SW12BC")
                 .works()
-                .at("Fabrikam")
-                .asA("Engineer")
+                .at("Google")
+                .asA("Developer")
                 .earning(123000)
+                .firstName("Omonjon")
+                .lastName("Yokubov")
                 .build();
         System.out.println(person);
     }
