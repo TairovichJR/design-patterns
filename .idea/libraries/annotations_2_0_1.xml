@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="annotations-2.0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/additional_jars/annotations-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/additional_jars/guava-15.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/additional_jars/javassist-3.19.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/additional_jars/reflections-0.9.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/additional_jars/annotations-2.0.1.jar!/" />
+    </SOURCES>
+  </library>
+</component>
