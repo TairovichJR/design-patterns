@@ -1,0 +1,8 @@
+For some components it only makes sense to have one in the system
+ - database repository
+ - Object factory
+Constructor call is expensive
+ - we only do it once
+ -we provide everyone with the same instance
+ Want to prevent anyone creating additional copies
+ Need to take care of lazy instantiation and thread safety
